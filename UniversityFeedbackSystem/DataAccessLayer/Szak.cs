@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer
 {
-    class Szak : SZAKOK
+    public class Szak : SZAKOK
     {
         public Szak()
         {

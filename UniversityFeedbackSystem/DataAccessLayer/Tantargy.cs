@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer
 {
-    class Tantargy : TANTARGYAK
+    public class Tantargy : TANTARGYAK
     {
+        public Tantargy()
+        {
+
+        }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer
 {
-    class Kerdoiv : KERDOIVEK
+    public class Kerdoiv : KERDOIVEK
     {
     }
 }

@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer
 {
-    class x_Kapcsolat : X
+    public class x_Kapcsolat : X
     {
+        public x_Kapcsolat()
+        {
+
+        }
     }
 }

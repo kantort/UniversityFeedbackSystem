@@ -8,7 +8,7 @@ using Oracle.ManagedDataAccess.Types;
 
 namespace DataAccessLayer
 {
-    class Kerdes : KERDESEK
+    public class Kerdes : KERDESEK
     {
         public Kerdes()
         {

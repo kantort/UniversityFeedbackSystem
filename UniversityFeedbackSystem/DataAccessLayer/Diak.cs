@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer
 {
-    class Diak : DIAKOK
+    public class Diak : DIAKOK
     {
         public Diak()
         {
