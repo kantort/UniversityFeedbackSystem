@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="DIAKOK">
+    <Key>
+      <PropertyRef Name="ID_DIAKOK" />
+    </Key>
+    <Property Name="ID_DIAKOK" Type="Int32" Nullable="false" />
+    <Property Name="AZONOSITO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ID_SZAKOK" Type="Int32" />
+    <Property Name="EVFOLYAM" Type="Byte" />
+    <Property Name="KITOLTOTTE1" Type="Boolean" />
+    <Property Name="KITOLTOTTE2" Type="Boolean" />
+    <NavigationProperty Name="SZAKOK" Relationship="Self.DIAKOK_FK" FromRole="DIAKOK" ToRole="SZAKOK" />
+  </EntityType>
+  <EntityType Name="KAROK">
+    <Key>
+      <PropertyRef Name="ID_KAROK" />
+    </Key>
+    <Property Name="NEV" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ID_KAROK" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="SZAKOKs" Relationship="Self.SZAKOK_FK" FromRole="KAROK" ToRole="SZAKOK" />
+    <NavigationProperty Name="TANSZEKEKs" Relationship="Self.TANSZEKEK_FK" FromRole="KAROK" ToRole="TANSZEKEK" />
+  </EntityType>
+  <EntityType Name="KERDESEK">
+    <Key>
+      <PropertyRef Name="ID_KERDESEK" />
+    </Key>
+    <Property Name="ID_KERDESEK" Type="Int32" Nullable="false" />
+    <Property Name="KERDES" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="TIPUS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="KERDOIVEK">
+    <Key>
+      <PropertyRef Name="ID_KERDOIVEK" />
+    </Key>
+    <Property Name="ID_KERDOIVEK" Type="Int32" Nullable="false" />
+    <Property Name="ID_X" Type="Int32" />
+    <Property Name="FELEV" Type="Boolean" />
+    <Property Name="EV" Type="Int16" />
+  </EntityType>
+  <EntityType Name="SZAKOK">
+    <Key>
+      <PropertyRef Name="ID_SZAKOK" />
+    </Key>
+    <Property Name="ID_SZAKOK" Type="Int32" Nullable="false" />
+    <Property Name="NEV" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="IDOTARTAM" Type="DateTime" Nullable="false" />
+    <Property Name="ID_KAROK" Type="Int32" />
+    <NavigationProperty Name="DIAKOKs" Relationship="Self.DIAKOK_FK" FromRole="SZAKOK" ToRole="DIAKOK" />
+    <NavigationProperty Name="KAROK" Relationship="Self.SZAKOK_FK" FromRole="SZAKOK" ToRole="KAROK" />
+    <NavigationProperty Name="TANTARGYAKs" Relationship="Self.TANTARGYAK_FK" FromRole="SZAKOK" ToRole="TANTARGYAK" />
+    <NavigationProperty Name="X" Relationship="Self.X_FK3" FromRole="SZAKOK" ToRole="X" />
+  </EntityType>
+  <EntityType Name="TANAROK">
+    <Key>
+      <PropertyRef Name="ID_TANAROK" />
+    </Key>
+    <Property Name="NEV" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ID_TANAROK" Type="Int32" Nullable="false" />
+    <Property Name="TANAROK_ALIAS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="JELSZO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="FUNKCIO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ID_TANSZEKEK" Type="Int32" />
+    <Property Name="FELHASZNALO_TIPUSA" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TANSZEKEK" Relationship="Self.TANAROK_FK" FromRole="TANAROK" ToRole="TANSZEKEK" />
+    <NavigationProperty Name="X" Relationship="Self.X_FK1" FromRole="TANAROK" ToRole="X" />
+  </EntityType>
+  <EntityType Name="TANSZEKEK">
+    <Key>
+      <PropertyRef Name="ID_TANSZEKEK" />
+    </Key>
+    <Property Name="ID_TANSZEKEK" Type="Int32" Nullable="false" />
+    <Property Name="NEV" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ID_KAROK" Type="Int32" />
+    <NavigationProperty Name="KAROK" Relationship="Self.TANSZEKEK_FK" FromRole="TANSZEKEK" ToRole="KAROK" />
+    <NavigationProperty Name="TANAROKs" Relationship="Self.TANAROK_FK" FromRole="TANSZEKEK" ToRole="TANAROK" />
+  </EntityType>
+  <EntityType Name="TANTARGYAK">
+    <Key>
+      <PropertyRef Name="ID_TANTARGYAK" />
+    </Key>
+    <Property Name="ID_TANTARGYAK" Type="Int32" Nullable="false" />
+    <Property Name="NEV" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="TIPUS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ID_SZAKOK" Type="Int32" />
+    <NavigationProperty Name="SZAKOK" Relationship="Self.TANTARGYAK_FK" FromRole="TANTARGYAK" ToRole="SZAKOK" />
+    <NavigationProperty Name="X" Relationship="Self.X_FK2" FromRole="TANTARGYAK" ToRole="X" />
+  </EntityType>
+  <EntityType Name="VALASZOK">
+    <Key>
+      <PropertyRef Name="ID_VALASZOK" />
+    </Key>
+    <Property Name="ID_VALASZOK" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="X">
+    <Key>
+      <PropertyRef Name="ID_X" />
+    </Key>
+    <Property Name="ID_X" Type="Int32" Nullable="false" />
+    <Property Name="ID_TANAROK" Type="Int32" />
+    <Property Name="ID_TANTARGYAK" Type="Int32" />
+    <Property Name="ID_SZAKOK" Type="Int32" />
+    <Property Name="EVFOLYAM" Type="Byte" />
+    <Property Name="FELEV" Type="Boolean" />
+    <Property Name="TANTARGY_TIPUS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="SZAKOK" Relationship="Self.X_FK3" FromRole="X" ToRole="SZAKOK" />
+    <NavigationProperty Name="TANAROK" Relationship="Self.X_FK1" FromRole="X" ToRole="TANAROK" />
+    <NavigationProperty Name="TANTARGYAK" Relationship="Self.X_FK2" FromRole="X" ToRole="TANTARGYAK" />
+  </EntityType>
+  <Association Name="DIAKOK_FK">
+    <End Role="SZAKOK" Type="Self.SZAKOK" Multiplicity="0..1" />
+    <End Role="DIAKOK" Type="Self.DIAKOK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SZAKOK">
+        <PropertyRef Name="ID_SZAKOK" />
+      </Principal>
+      <Dependent Role="DIAKOK">
+        <PropertyRef Name="ID_SZAKOK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SZAKOK_FK">
+    <End Role="KAROK" Type="Self.KAROK" Multiplicity="0..1" />
+    <End Role="SZAKOK" Type="Self.SZAKOK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KAROK">
+        <PropertyRef Name="ID_KAROK" />
+      </Principal>
+      <Dependent Role="SZAKOK">
+        <PropertyRef Name="ID_KAROK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TANSZEKEK_FK">
+    <End Role="KAROK" Type="Self.KAROK" Multiplicity="0..1" />
+    <End Role="TANSZEKEK" Type="Self.TANSZEKEK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KAROK">
+        <PropertyRef Name="ID_KAROK" />
+      </Principal>
+      <Dependent Role="TANSZEKEK">
+        <PropertyRef Name="ID_KAROK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TANTARGYAK_FK">
+    <End Role="SZAKOK" Type="Self.SZAKOK" Multiplicity="0..1" />
+    <End Role="TANTARGYAK" Type="Self.TANTARGYAK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SZAKOK">
+        <PropertyRef Name="ID_SZAKOK" />
+      </Principal>
+      <Dependent Role="TANTARGYAK">
+        <PropertyRef Name="ID_SZAKOK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="X_FK3">
+    <End Role="SZAKOK" Type="Self.SZAKOK" Multiplicity="0..1" />
+    <End Role="X" Type="Self.X" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SZAKOK">
+        <PropertyRef Name="ID_SZAKOK" />
+      </Principal>
+      <Dependent Role="X">
+        <PropertyRef Name="ID_SZAKOK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TANAROK_FK">
+    <End Role="TANSZEKEK" Type="Self.TANSZEKEK" Multiplicity="0..1" />
+    <End Role="TANAROK" Type="Self.TANAROK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TANSZEKEK">
+        <PropertyRef Name="ID_TANSZEKEK" />
+      </Principal>
+      <Dependent Role="TANAROK">
+        <PropertyRef Name="ID_TANSZEKEK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="X_FK1">
+    <End Role="TANAROK" Type="Self.TANAROK" Multiplicity="0..1" />
+    <End Role="X" Type="Self.X" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TANAROK">
+        <PropertyRef Name="ID_TANAROK" />
+      </Principal>
+      <Dependent Role="X">
+        <PropertyRef Name="ID_TANAROK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="X_FK2">
+    <End Role="TANTARGYAK" Type="Self.TANTARGYAK" Multiplicity="0..1" />
+    <End Role="X" Type="Self.X" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TANTARGYAK">
+        <PropertyRef Name="ID_TANTARGYAK" />
+      </Principal>
+      <Dependent Role="X">
+        <PropertyRef Name="ID_TANTARGYAK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="OREntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="DIAKOKs" EntityType="Self.DIAKOK" />
+    <EntitySet Name="KAROKs" EntityType="Self.KAROK" />
+    <EntitySet Name="KERDESEKs" EntityType="Self.KERDESEK" />
+    <EntitySet Name="KERDOIVEKs" EntityType="Self.KERDOIVEK" />
+    <EntitySet Name="SZAKOKs" EntityType="Self.SZAKOK" />
+    <EntitySet Name="TANAROKs" EntityType="Self.TANAROK" />
+    <EntitySet Name="TANSZEKEKs" EntityType="Self.TANSZEKEK" />
+    <EntitySet Name="TANTARGYAKs" EntityType="Self.TANTARGYAK" />
+    <EntitySet Name="VALASZOKs" EntityType="Self.VALASZOK" />
+    <EntitySet Name="X" EntityType="Self.X" />
+    <AssociationSet Name="DIAKOK_FK" Association="Self.DIAKOK_FK">
+      <End Role="SZAKOK" EntitySet="SZAKOKs" />
+      <End Role="DIAKOK" EntitySet="DIAKOKs" />
+    </AssociationSet>
+    <AssociationSet Name="SZAKOK_FK" Association="Self.SZAKOK_FK">
+      <End Role="KAROK" EntitySet="KAROKs" />
+      <End Role="SZAKOK" EntitySet="SZAKOKs" />
+    </AssociationSet>
+    <AssociationSet Name="TANSZEKEK_FK" Association="Self.TANSZEKEK_FK">
+      <End Role="KAROK" EntitySet="KAROKs" />
+      <End Role="TANSZEKEK" EntitySet="TANSZEKEKs" />
+    </AssociationSet>
+    <AssociationSet Name="TANTARGYAK_FK" Association="Self.TANTARGYAK_FK">
+      <End Role="SZAKOK" EntitySet="SZAKOKs" />
+      <End Role="TANTARGYAK" EntitySet="TANTARGYAKs" />
+    </AssociationSet>
+    <AssociationSet Name="X_FK3" Association="Self.X_FK3">
+      <End Role="SZAKOK" EntitySet="SZAKOKs" />
+      <End Role="X" EntitySet="X" />
+    </AssociationSet>
+    <AssociationSet Name="TANAROK_FK" Association="Self.TANAROK_FK">
+      <End Role="TANSZEKEK" EntitySet="TANSZEKEKs" />
+      <End Role="TANAROK" EntitySet="TANAROKs" />
+    </AssociationSet>
+    <AssociationSet Name="X_FK1" Association="Self.X_FK1">
+      <End Role="TANAROK" EntitySet="TANAROKs" />
+      <End Role="X" EntitySet="X" />
+    </AssociationSet>
+    <AssociationSet Name="X_FK2" Association="Self.X_FK2">
+      <End Role="TANTARGYAK" EntitySet="TANTARGYAKs" />
+      <End Role="X" EntitySet="X" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

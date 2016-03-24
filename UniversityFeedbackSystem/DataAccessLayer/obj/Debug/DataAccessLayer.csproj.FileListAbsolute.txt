@@ -1,0 +1,12 @@
+D:\Adatok\Egyetem\III ev\III ev - II felev\Osztott rendszerek\UniversityFeedbackSystem\UniversityFeedbackSystem\DataAccessLayer\bin\Debug\DataAccessLayer.dll.config
+D:\Adatok\Egyetem\III ev\III ev - II felev\Osztott rendszerek\UniversityFeedbackSystem\UniversityFeedbackSystem\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+D:\Adatok\Egyetem\III ev\III ev - II felev\Osztott rendszerek\UniversityFeedbackSystem\UniversityFeedbackSystem\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+D:\Adatok\Egyetem\III ev\III ev - II felev\Osztott rendszerek\UniversityFeedbackSystem\UniversityFeedbackSystem\DataAccessLayer\bin\Debug\EntityFramework.dll
+D:\Adatok\Egyetem\III ev\III ev - II felev\Osztott rendszerek\UniversityFeedbackSystem\UniversityFeedbackSystem\DataAccessLayer\bin\Debug\EntityFramework.SqlServer.dll
+D:\Adatok\Egyetem\III ev\III ev - II felev\Osztott rendszerek\UniversityFeedbackSystem\UniversityFeedbackSystem\DataAccessLayer\bin\Debug\Oracle.ManagedDataAccess.dll
+D:\Adatok\Egyetem\III ev\III ev - II felev\Osztott rendszerek\UniversityFeedbackSystem\UniversityFeedbackSystem\DataAccessLayer\bin\Debug\Oracle.ManagedDataAccess.EntityFramework.dll
+D:\Adatok\Egyetem\III ev\III ev - II felev\Osztott rendszerek\UniversityFeedbackSystem\UniversityFeedbackSystem\DataAccessLayer\bin\Debug\EntityFramework.xml
+D:\Adatok\Egyetem\III ev\III ev - II felev\Osztott rendszerek\UniversityFeedbackSystem\UniversityFeedbackSystem\DataAccessLayer\bin\Debug\EntityFramework.SqlServer.xml
+D:\Adatok\Egyetem\III ev\III ev - II felev\Osztott rendszerek\UniversityFeedbackSystem\UniversityFeedbackSystem\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
+D:\Adatok\Egyetem\III ev\III ev - II felev\Osztott rendszerek\UniversityFeedbackSystem\UniversityFeedbackSystem\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+D:\Adatok\Egyetem\III ev\III ev - II felev\Osztott rendszerek\UniversityFeedbackSystem\UniversityFeedbackSystem\DataAccessLayer\obj\Debug\DataAccessLayer.pdb

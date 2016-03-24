@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="DIAKOK">
+    <Key>
+      <PropertyRef Name="ID_DIAKOK" />
+    </Key>
+    <Property Name="ID_DIAKOK" Type="number" Precision="8" Scale="0" Nullable="false" />
+    <Property Name="AZONOSITO" Type="varchar2" MaxLength="20" />
+    <Property Name="ID_SZAKOK" Type="number" Precision="8" Scale="0" />
+    <Property Name="EVFOLYAM" Type="number" Precision="2" Scale="0" />
+    <Property Name="KITOLTOTTE1" Type="number" Precision="1" Scale="0" />
+    <Property Name="KITOLTOTTE2" Type="number" Precision="1" Scale="0" />
+  </EntityType>
+  <EntityType Name="KAROK">
+    <Key>
+      <PropertyRef Name="ID_KAROK" />
+    </Key>
+    <Property Name="NEV" Type="varchar2" MaxLength="20" />
+    <Property Name="ID_KAROK" Type="number" Precision="8" Scale="0" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6005: The data type 'valasz_lista' is currently not supported for the target Entity Framework version; the column 'OSZTOTTRENDSZER.KERDESEK' in the table 'VALASZLEHETOSEGEK' was excluded.
+warning 6005: The data type 'valasz_lista_ertekek' is currently not supported for the target Entity Framework version; the column 'OSZTOTTRENDSZER.KERDESEK' in the table 'VALASZLEHETOSEGEK_ERTEKE' was excluded.-->
+  <EntityType Name="KERDESEK">
+    <Key>
+      <PropertyRef Name="ID_KERDESEK" />
+    </Key>
+    <Property Name="ID_KERDESEK" Type="number" Precision="8" Scale="0" Nullable="false" />
+    <Property Name="KERDES" Type="varchar2" MaxLength="100" />
+    <Property Name="TIPUS" Type="varchar2" MaxLength="20" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6005: The data type 'kerdes_idk_lista' is currently not supported for the target Entity Framework version; the column 'OSZTOTTRENDSZER.KERDOIVEK' in the table 'KERDES_IDK' was excluded.-->
+  <EntityType Name="KERDOIVEK">
+    <Key>
+      <PropertyRef Name="ID_KERDOIVEK" />
+    </Key>
+    <Property Name="ID_KERDOIVEK" Type="number" Precision="8" Scale="0" Nullable="false" />
+    <Property Name="ID_X" Type="number" Precision="8" Scale="0" />
+    <Property Name="FELEV" Type="number" Precision="1" Scale="0" />
+    <Property Name="EV" Type="number" Precision="4" Scale="0" />
+  </EntityType>
+  <EntityType Name="SZAKOK">
+    <Key>
+      <PropertyRef Name="ID_SZAKOK" />
+    </Key>
+    <Property Name="ID_SZAKOK" Type="number" Precision="8" Scale="0" Nullable="false" />
+    <Property Name="NEV" Type="varchar2" MaxLength="20" />
+    <Property Name="IDOTARTAM" Type="date" Nullable="false" />
+    <Property Name="ID_KAROK" Type="number" Precision="8" Scale="0" />
+  </EntityType>
+  <EntityType Name="TANAROK">
+    <Key>
+      <PropertyRef Name="ID_TANAROK" />
+    </Key>
+    <Property Name="NEV" Type="varchar2" MaxLength="20" />
+    <Property Name="ID_TANAROK" Type="number" Precision="8" Scale="0" Nullable="false" />
+    <Property Name="TANAROK_ALIAS" Type="varchar2" MaxLength="20" />
+    <Property Name="JELSZO" Type="varchar2" MaxLength="20" />
+    <Property Name="FUNKCIO" Type="varchar2" MaxLength="20" />
+    <Property Name="ID_TANSZEKEK" Type="number" Precision="8" Scale="0" />
+    <Property Name="FELHASZNALO_TIPUSA" Type="varchar2" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="TANSZEKEK">
+    <Key>
+      <PropertyRef Name="ID_TANSZEKEK" />
+    </Key>
+    <Property Name="ID_TANSZEKEK" Type="number" Precision="8" Scale="0" Nullable="false" />
+    <Property Name="NEV" Type="varchar2" MaxLength="20" />
+    <Property Name="ID_KAROK" Type="number" Precision="8" Scale="0" />
+  </EntityType>
+  <EntityType Name="TANTARGYAK">
+    <Key>
+      <PropertyRef Name="ID_TANTARGYAK" />
+    </Key>
+    <Property Name="ID_TANTARGYAK" Type="number" Precision="8" Scale="0" Nullable="false" />
+    <Property Name="NEV" Type="varchar2" MaxLength="20" />
+    <Property Name="TIPUS" Type="varchar2" MaxLength="20" />
+    <Property Name="ID_SZAKOK" Type="number" Precision="8" Scale="0" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6005: The data type 'id_x_lista' is currently not supported for the target Entity Framework version; the column 'OSZTOTTRENDSZER.VALASZOK' in the table 'ID_X' was excluded.
+warning 6005: The data type 'av2' is currently not supported for the target Entity Framework version; the column 'OSZTOTTRENDSZER.VALASZOK' in the table 'AKTUALIS_VALASZOK' was excluded.-->
+  <EntityType Name="VALASZOK">
+    <Key>
+      <PropertyRef Name="ID_VALASZOK" />
+    </Key>
+    <Property Name="ID_VALASZOK" Type="number" Precision="8" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="X">
+    <Key>
+      <PropertyRef Name="ID_X" />
+    </Key>
+    <Property Name="ID_X" Type="number" Precision="8" Scale="0" Nullable="false" />
+    <Property Name="ID_TANAROK" Type="number" Precision="8" Scale="0" />
+    <Property Name="ID_TANTARGYAK" Type="number" Precision="8" Scale="0" />
+    <Property Name="ID_SZAKOK" Type="number" Precision="8" Scale="0" />
+    <Property Name="EVFOLYAM" Type="number" Precision="2" Scale="0" />
+    <Property Name="FELEV" Type="number" Precision="1" Scale="0" />
+    <Property Name="TANTARGY_TIPUS" Type="varchar2" MaxLength="20" />
+  </EntityType>
+  <Association Name="DIAKOK_FK">
+    <End Role="SZAKOK" Type="Self.SZAKOK" Multiplicity="0..1" />
+    <End Role="DIAKOK" Type="Self.DIAKOK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SZAKOK">
+        <PropertyRef Name="ID_SZAKOK" />
+      </Principal>
+      <Dependent Role="DIAKOK">
+        <PropertyRef Name="ID_SZAKOK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SZAKOK_FK">
+    <End Role="KAROK" Type="Self.KAROK" Multiplicity="0..1" />
+    <End Role="SZAKOK" Type="Self.SZAKOK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KAROK">
+        <PropertyRef Name="ID_KAROK" />
+      </Principal>
+      <Dependent Role="SZAKOK">
+        <PropertyRef Name="ID_KAROK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TANAROK_FK">
+    <End Role="TANSZEKEK" Type="Self.TANSZEKEK" Multiplicity="0..1" />
+    <End Role="TANAROK" Type="Self.TANAROK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TANSZEKEK">
+        <PropertyRef Name="ID_TANSZEKEK" />
+      </Principal>
+      <Dependent Role="TANAROK">
+        <PropertyRef Name="ID_TANSZEKEK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TANSZEKEK_FK">
+    <End Role="KAROK" Type="Self.KAROK" Multiplicity="0..1" />
+    <End Role="TANSZEKEK" Type="Self.TANSZEKEK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KAROK">
+        <PropertyRef Name="ID_KAROK" />
+      </Principal>
+      <Dependent Role="TANSZEKEK">
+        <PropertyRef Name="ID_KAROK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TANTARGYAK_FK">
+    <End Role="SZAKOK" Type="Self.SZAKOK" Multiplicity="0..1" />
+    <End Role="TANTARGYAK" Type="Self.TANTARGYAK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SZAKOK">
+        <PropertyRef Name="ID_SZAKOK" />
+      </Principal>
+      <Dependent Role="TANTARGYAK">
+        <PropertyRef Name="ID_SZAKOK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="X_FK1">
+    <End Role="TANAROK" Type="Self.TANAROK" Multiplicity="0..1" />
+    <End Role="X" Type="Self.X" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TANAROK">
+        <PropertyRef Name="ID_TANAROK" />
+      </Principal>
+      <Dependent Role="X">
+        <PropertyRef Name="ID_TANAROK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="X_FK2">
+    <End Role="TANTARGYAK" Type="Self.TANTARGYAK" Multiplicity="0..1" />
+    <End Role="X" Type="Self.X" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TANTARGYAK">
+        <PropertyRef Name="ID_TANTARGYAK" />
+      </Principal>
+      <Dependent Role="X">
+        <PropertyRef Name="ID_TANTARGYAK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="X_FK3">
+    <End Role="SZAKOK" Type="Self.SZAKOK" Multiplicity="0..1" />
+    <End Role="X" Type="Self.X" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SZAKOK">
+        <PropertyRef Name="ID_SZAKOK" />
+      </Principal>
+      <Dependent Role="X">
+        <PropertyRef Name="ID_SZAKOK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="DIAKOK" EntityType="Self.DIAKOK" Schema="OSZTOTTRENDSZER" store:Type="Tables" />
+    <EntitySet Name="KAROK" EntityType="Self.KAROK" Schema="OSZTOTTRENDSZER" store:Type="Tables" />
+    <EntitySet Name="KERDESEK" EntityType="Self.KERDESEK" Schema="OSZTOTTRENDSZER" store:Type="Tables" />
+    <EntitySet Name="KERDOIVEK" EntityType="Self.KERDOIVEK" Schema="OSZTOTTRENDSZER" store:Type="Tables" />
+    <EntitySet Name="SZAKOK" EntityType="Self.SZAKOK" Schema="OSZTOTTRENDSZER" store:Type="Tables" />
+    <EntitySet Name="TANAROK" EntityType="Self.TANAROK" Schema="OSZTOTTRENDSZER" store:Type="Tables" />
+    <EntitySet Name="TANSZEKEK" EntityType="Self.TANSZEKEK" Schema="OSZTOTTRENDSZER" store:Type="Tables" />
+    <EntitySet Name="TANTARGYAK" EntityType="Self.TANTARGYAK" Schema="OSZTOTTRENDSZER" store:Type="Tables" />
+    <EntitySet Name="VALASZOK" EntityType="Self.VALASZOK" Schema="OSZTOTTRENDSZER" store:Type="Tables" />
+    <EntitySet Name="X" EntityType="Self.X" Schema="OSZTOTTRENDSZER" store:Type="Tables" />
+    <AssociationSet Name="DIAKOK_FK" Association="Self.DIAKOK_FK">
+      <End Role="SZAKOK" EntitySet="SZAKOK" />
+      <End Role="DIAKOK" EntitySet="DIAKOK" />
+    </AssociationSet>
+    <AssociationSet Name="SZAKOK_FK" Association="Self.SZAKOK_FK">
+      <End Role="KAROK" EntitySet="KAROK" />
+      <End Role="SZAKOK" EntitySet="SZAKOK" />
+    </AssociationSet>
+    <AssociationSet Name="TANAROK_FK" Association="Self.TANAROK_FK">
+      <End Role="TANSZEKEK" EntitySet="TANSZEKEK" />
+      <End Role="TANAROK" EntitySet="TANAROK" />
+    </AssociationSet>
+    <AssociationSet Name="TANSZEKEK_FK" Association="Self.TANSZEKEK_FK">
+      <End Role="KAROK" EntitySet="KAROK" />
+      <End Role="TANSZEKEK" EntitySet="TANSZEKEK" />
+    </AssociationSet>
+    <AssociationSet Name="TANTARGYAK_FK" Association="Self.TANTARGYAK_FK">
+      <End Role="SZAKOK" EntitySet="SZAKOK" />
+      <End Role="TANTARGYAK" EntitySet="TANTARGYAK" />
+    </AssociationSet>
+    <AssociationSet Name="X_FK1" Association="Self.X_FK1">
+      <End Role="TANAROK" EntitySet="TANAROK" />
+      <End Role="X" EntitySet="X" />
+    </AssociationSet>
+    <AssociationSet Name="X_FK2" Association="Self.X_FK2">
+      <End Role="TANTARGYAK" EntitySet="TANTARGYAK" />
+      <End Role="X" EntitySet="X" />
+    </AssociationSet>
+    <AssociationSet Name="X_FK3" Association="Self.X_FK3">
+      <End Role="SZAKOK" EntitySet="SZAKOK" />
+      <End Role="X" EntitySet="X" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

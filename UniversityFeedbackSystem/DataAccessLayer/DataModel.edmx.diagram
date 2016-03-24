@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e7b80bffdf2d4d75b4eaf412bc308a23" Name="Diagram1" ZoomLevel="64">
+        <EntityTypeShape EntityType="Model.DIAKOK" Width="1.5" PointX="5.25" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.KAROK" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.KERDESEK" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.KERDOIVEK" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.SZAKOK" Width="1.5" PointX="3" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.TANAROK" Width="1.5" PointX="5.25" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.TANSZEKEK" Width="1.5" PointX="3" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.TANTARGYAK" Width="1.5" PointX="5.25" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.VALASZOK" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.X" Width="1.5" PointX="7.5" PointY="5.25" IsExpanded="true" />
+        <AssociationConnector Association="Model.DIAKOK_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.SZAKOK_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.TANSZEKEK_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.TANTARGYAK_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.X_FK3" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.TANAROK_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.X_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.X_FK2" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Model.KERDES_VALASZLEHETOSEG" Width="1.5" PointX="10" PointY="3.5" />
+        <EntityTypeShape EntityType="Model.KERDOIV_KERDES" Width="1.5" PointX="12" PointY="0.75" />
+        <AssociationConnector Association="Model.XY_FK1" />
+        <AssociationConnector Association="Model.XY_FK4" />
+        <AssociationConnector Association="Model.XY_FK3" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

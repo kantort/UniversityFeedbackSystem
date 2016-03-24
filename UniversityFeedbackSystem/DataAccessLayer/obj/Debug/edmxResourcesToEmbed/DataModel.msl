@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="OREntities">
+    <EntitySetMapping Name="DIAKOKs">
+      <EntityTypeMapping TypeName="Model.DIAKOK">
+        <MappingFragment StoreEntitySet="DIAKOK">
+          <ScalarProperty Name="ID_DIAKOK" ColumnName="ID_DIAKOK" />
+          <ScalarProperty Name="AZONOSITO" ColumnName="AZONOSITO" />
+          <ScalarProperty Name="ID_SZAKOK" ColumnName="ID_SZAKOK" />
+          <ScalarProperty Name="EVFOLYAM" ColumnName="EVFOLYAM" />
+          <ScalarProperty Name="KITOLTOTTE1" ColumnName="KITOLTOTTE1" />
+          <ScalarProperty Name="KITOLTOTTE2" ColumnName="KITOLTOTTE2" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KAROKs">
+      <EntityTypeMapping TypeName="Model.KAROK">
+        <MappingFragment StoreEntitySet="KAROK">
+          <ScalarProperty Name="NEV" ColumnName="NEV" />
+          <ScalarProperty Name="ID_KAROK" ColumnName="ID_KAROK" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KERDESEKs">
+      <EntityTypeMapping TypeName="Model.KERDESEK">
+        <MappingFragment StoreEntitySet="KERDESEK">
+          <ScalarProperty Name="ID_KERDESEK" ColumnName="ID_KERDESEK" />
+          <ScalarProperty Name="KERDES" ColumnName="KERDES" />
+          <ScalarProperty Name="TIPUS" ColumnName="TIPUS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KERDOIVEKs">
+      <EntityTypeMapping TypeName="Model.KERDOIVEK">
+        <MappingFragment StoreEntitySet="KERDOIVEK">
+          <ScalarProperty Name="ID_KERDOIVEK" ColumnName="ID_KERDOIVEK" />
+          <ScalarProperty Name="ID_X" ColumnName="ID_X" />
+          <ScalarProperty Name="FELEV" ColumnName="FELEV" />
+          <ScalarProperty Name="EV" ColumnName="EV" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SZAKOKs">
+      <EntityTypeMapping TypeName="Model.SZAKOK">
+        <MappingFragment StoreEntitySet="SZAKOK">
+          <ScalarProperty Name="ID_SZAKOK" ColumnName="ID_SZAKOK" />
+          <ScalarProperty Name="NEV" ColumnName="NEV" />
+          <ScalarProperty Name="IDOTARTAM" ColumnName="IDOTARTAM" />
+          <ScalarProperty Name="ID_KAROK" ColumnName="ID_KAROK" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TANAROKs">
+      <EntityTypeMapping TypeName="Model.TANAROK">
+        <MappingFragment StoreEntitySet="TANAROK">
+          <ScalarProperty Name="NEV" ColumnName="NEV" />
+          <ScalarProperty Name="ID_TANAROK" ColumnName="ID_TANAROK" />
+          <ScalarProperty Name="TANAROK_ALIAS" ColumnName="TANAROK_ALIAS" />
+          <ScalarProperty Name="JELSZO" ColumnName="JELSZO" />
+          <ScalarProperty Name="FUNKCIO" ColumnName="FUNKCIO" />
+          <ScalarProperty Name="ID_TANSZEKEK" ColumnName="ID_TANSZEKEK" />
+          <ScalarProperty Name="FELHASZNALO_TIPUSA" ColumnName="FELHASZNALO_TIPUSA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TANSZEKEKs">
+      <EntityTypeMapping TypeName="Model.TANSZEKEK">
+        <MappingFragment StoreEntitySet="TANSZEKEK">
+          <ScalarProperty Name="ID_TANSZEKEK" ColumnName="ID_TANSZEKEK" />
+          <ScalarProperty Name="NEV" ColumnName="NEV" />
+          <ScalarProperty Name="ID_KAROK" ColumnName="ID_KAROK" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TANTARGYAKs">
+      <EntityTypeMapping TypeName="Model.TANTARGYAK">
+        <MappingFragment StoreEntitySet="TANTARGYAK">
+          <ScalarProperty Name="ID_TANTARGYAK" ColumnName="ID_TANTARGYAK" />
+          <ScalarProperty Name="NEV" ColumnName="NEV" />
+          <ScalarProperty Name="TIPUS" ColumnName="TIPUS" />
+          <ScalarProperty Name="ID_SZAKOK" ColumnName="ID_SZAKOK" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VALASZOKs">
+      <EntityTypeMapping TypeName="Model.VALASZOK">
+        <MappingFragment StoreEntitySet="VALASZOK">
+          <ScalarProperty Name="ID_VALASZOK" ColumnName="ID_VALASZOK" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="X">
+      <EntityTypeMapping TypeName="Model.X">
+        <MappingFragment StoreEntitySet="X">
+          <ScalarProperty Name="ID_X" ColumnName="ID_X" />
+          <ScalarProperty Name="ID_TANAROK" ColumnName="ID_TANAROK" />
+          <ScalarProperty Name="ID_TANTARGYAK" ColumnName="ID_TANTARGYAK" />
+          <ScalarProperty Name="ID_SZAKOK" ColumnName="ID_SZAKOK" />
+          <ScalarProperty Name="EVFOLYAM" ColumnName="EVFOLYAM" />
+          <ScalarProperty Name="FELEV" ColumnName="FELEV" />
+          <ScalarProperty Name="TANTARGY_TIPUS" ColumnName="TANTARGY_TIPUS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
