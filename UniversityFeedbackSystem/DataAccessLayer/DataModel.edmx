@@ -95,14 +95,15 @@
           <Property Name="TIPUS" Type="varchar2" MaxLength="20" />
           <Property Name="ID_SZAKOK" Type="number" Precision="8" Scale="0" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6005: The data type 'id_x_lista' is currently not supported for the target Entity Framework version; the column 'OSZTOTTRENDSZER.VALASZOK' in the table 'ID_X' was excluded.
-warning 6005: The data type 'av2' is currently not supported for the target Entity Framework version; the column 'OSZTOTTRENDSZER.VALASZOK' in the table 'AKTUALIS_VALASZOK' was excluded.-->
         <EntityType Name="VALASZOK">
           <Key>
             <PropertyRef Name="ID_VALASZOK" />
           </Key>
           <Property Name="ID_VALASZOK" Type="number" Precision="8" Scale="0" Nullable="false" />
+          <Property Name="X_ID" Type="number" Precision="8" Scale="0" />
+          <Property Name="ID_KERDOIV" Type="number" Precision="8" Scale="0" />
+          <Property Name="ID_KERDES" Type="number" Precision="8" Scale="0" />
+          <Property Name="ID_VALASZ" Type="number" Precision="8" Scale="0" />
         </EntityType>
         <EntityType Name="X">
           <Key>
@@ -173,6 +174,54 @@ warning 6005: The data type 'av2' is currently not supported for the target Enti
             </Principal>
             <Dependent Role="TANTARGYAK">
               <PropertyRef Name="ID_SZAKOK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VALASZ_FK1">
+          <End Role="X" Type="Self.X" Multiplicity="0..1" />
+          <End Role="VALASZOK" Type="Self.VALASZOK" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="X">
+              <PropertyRef Name="ID_X" />
+            </Principal>
+            <Dependent Role="VALASZOK">
+              <PropertyRef Name="X_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VALASZ_FK2">
+          <End Role="KERDOIVEK" Type="Self.KERDOIVEK" Multiplicity="0..1" />
+          <End Role="VALASZOK" Type="Self.VALASZOK" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KERDOIVEK">
+              <PropertyRef Name="ID_KERDOIVEK" />
+            </Principal>
+            <Dependent Role="VALASZOK">
+              <PropertyRef Name="ID_KERDOIV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VALASZ_FK3">
+          <End Role="KERDESEK" Type="Self.KERDESEK" Multiplicity="0..1" />
+          <End Role="VALASZOK" Type="Self.VALASZOK" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KERDESEK">
+              <PropertyRef Name="ID_KERDESEK" />
+            </Principal>
+            <Dependent Role="VALASZOK">
+              <PropertyRef Name="ID_KERDES" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VALASZ_FK4">
+          <End Role="KERDES_VALASZLEHETOSEG" Type="Self.KERDES_VALASZLEHETOSEG" Multiplicity="0..1" />
+          <End Role="VALASZOK" Type="Self.VALASZOK" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KERDES_VALASZLEHETOSEG">
+              <PropertyRef Name="ID_KERDES_VALASZLEHETOSEG" />
+            </Principal>
+            <Dependent Role="VALASZOK">
+              <PropertyRef Name="ID_VALASZ" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -281,6 +330,22 @@ warning 6005: The data type 'av2' is currently not supported for the target Enti
             <End Role="SZAKOK" EntitySet="SZAKOK" />
             <End Role="TANTARGYAK" EntitySet="TANTARGYAK" />
           </AssociationSet>
+          <AssociationSet Name="VALASZ_FK1" Association="Self.VALASZ_FK1">
+            <End Role="X" EntitySet="X" />
+            <End Role="VALASZOK" EntitySet="VALASZOK" />
+          </AssociationSet>
+          <AssociationSet Name="VALASZ_FK2" Association="Self.VALASZ_FK2">
+            <End Role="KERDOIVEK" EntitySet="KERDOIVEK" />
+            <End Role="VALASZOK" EntitySet="VALASZOK" />
+          </AssociationSet>
+          <AssociationSet Name="VALASZ_FK3" Association="Self.VALASZ_FK3">
+            <End Role="KERDESEK" EntitySet="KERDESEK" />
+            <End Role="VALASZOK" EntitySet="VALASZOK" />
+          </AssociationSet>
+          <AssociationSet Name="VALASZ_FK4" Association="Self.VALASZ_FK4">
+            <End Role="KERDES_VALASZLEHETOSEG" EntitySet="KERDES_VALASZLEHETOSEG" />
+            <End Role="VALASZOK" EntitySet="VALASZOK" />
+          </AssociationSet>
           <AssociationSet Name="X_FK1" Association="Self.X_FK1">
             <End Role="TANAROK" EntitySet="TANAROK" />
             <End Role="X" EntitySet="X" />
@@ -340,6 +405,7 @@ warning 6005: The data type 'av2' is currently not supported for the target Enti
           <Property Name="TIPUS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="KERDES_VALASZLEHETOSEG" Relationship="Model.XY_FK1" FromRole="KERDESEK" ToRole="KERDES_VALASZLEHETOSEG" />
           <NavigationProperty Name="KERDOIV_KERDES" Relationship="Model.XY_FK4" FromRole="KERDESEK" ToRole="KERDOIV_KERDES" />
+          <NavigationProperty Name="VALASZOKs" Relationship="Model.VALASZ_FK3" FromRole="KERDESEK" ToRole="VALASZOK" />
         </EntityType>
         <EntityType Name="KERDOIVEK">
           <Key>
@@ -350,6 +416,7 @@ warning 6005: The data type 'av2' is currently not supported for the target Enti
           <Property Name="FELEV" Type="Boolean" />
           <Property Name="EV" Type="Int16" />
           <NavigationProperty Name="KERDOIV_KERDES" Relationship="Model.XY_FK3" FromRole="KERDOIVEK" ToRole="KERDOIV_KERDES" />
+          <NavigationProperty Name="VALASZOKs" Relationship="Model.VALASZ_FK2" FromRole="KERDOIVEK" ToRole="VALASZOK" />
         </EntityType>
         <EntityType Name="SZAKOK">
           <Key>
@@ -404,6 +471,14 @@ warning 6005: The data type 'av2' is currently not supported for the target Enti
             <PropertyRef Name="ID_VALASZOK" />
           </Key>
           <Property Name="ID_VALASZOK" Type="Int32" Nullable="false" />
+          <Property Name="X_ID" Type="Int32" />
+          <Property Name="ID_KERDOIV" Type="Int32" />
+          <Property Name="ID_KERDES" Type="Int32" />
+          <Property Name="ID_VALASZ" Type="Int32" />
+          <NavigationProperty Name="KERDES_VALASZLEHETOSEG" Relationship="Model.VALASZ_FK4" FromRole="VALASZOK" ToRole="KERDES_VALASZLEHETOSEG" />
+          <NavigationProperty Name="KERDESEK" Relationship="Model.VALASZ_FK3" FromRole="VALASZOK" ToRole="KERDESEK" />
+          <NavigationProperty Name="KERDOIVEK" Relationship="Model.VALASZ_FK2" FromRole="VALASZOK" ToRole="KERDOIVEK" />
+          <NavigationProperty Name="X" Relationship="Model.VALASZ_FK1" FromRole="VALASZOK" ToRole="X" />
         </EntityType>
         <EntityType Name="X">
           <Key>
@@ -419,6 +494,7 @@ warning 6005: The data type 'av2' is currently not supported for the target Enti
           <NavigationProperty Name="SZAKOK" Relationship="Self.X_FK3" FromRole="X" ToRole="SZAKOK" />
           <NavigationProperty Name="TANAROK" Relationship="Self.X_FK1" FromRole="X" ToRole="TANAROK" />
           <NavigationProperty Name="TANTARGYAK" Relationship="Self.X_FK2" FromRole="X" ToRole="TANTARGYAK" />
+          <NavigationProperty Name="VALASZOKs" Relationship="Model.VALASZ_FK1" FromRole="X" ToRole="VALASZOK" />
         </EntityType>
         <Association Name="DIAKOK_FK">
           <End Role="SZAKOK" Type="Self.SZAKOK" Multiplicity="0..1" />
@@ -573,6 +649,22 @@ warning 6005: The data type 'av2' is currently not supported for the target Enti
             <End Role="KERDOIVEK" EntitySet="KERDOIVEKs" />
             <End Role="KERDOIV_KERDES" EntitySet="KERDOIV_KERDES" />
           </AssociationSet>
+          <AssociationSet Name="VALASZ_FK4" Association="Model.VALASZ_FK4">
+            <End Role="KERDES_VALASZLEHETOSEG" EntitySet="KERDES_VALASZLEHETOSEG" />
+            <End Role="VALASZOK" EntitySet="VALASZOKs" />
+          </AssociationSet>
+          <AssociationSet Name="VALASZ_FK3" Association="Model.VALASZ_FK3">
+            <End Role="KERDESEK" EntitySet="KERDESEKs" />
+            <End Role="VALASZOK" EntitySet="VALASZOKs" />
+          </AssociationSet>
+          <AssociationSet Name="VALASZ_FK2" Association="Model.VALASZ_FK2">
+            <End Role="KERDOIVEK" EntitySet="KERDOIVEKs" />
+            <End Role="VALASZOK" EntitySet="VALASZOKs" />
+          </AssociationSet>
+          <AssociationSet Name="VALASZ_FK1" Association="Model.VALASZ_FK1">
+            <End Role="X" EntitySet="X" />
+            <End Role="VALASZOK" EntitySet="VALASZOKs" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="KERDES_VALASZLEHETOSEG">
           <Key>
@@ -583,6 +675,7 @@ warning 6005: The data type 'av2' is currently not supported for the target Enti
           <Property Name="VALASZLEHETOSEG" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="VALASZLEHETOSEG_ERTEK" Type="Int32" />
           <NavigationProperty Name="KERDESEK" Relationship="Model.XY_FK1" FromRole="KERDES_VALASZLEHETOSEG" ToRole="KERDESEK" />
+          <NavigationProperty Name="VALASZOKs" Relationship="Model.VALASZ_FK4" FromRole="KERDES_VALASZLEHETOSEG" ToRole="VALASZOK" />
         </EntityType>
         <EntityType Name="KERDOIV_KERDES">
           <Key>
@@ -627,6 +720,54 @@ warning 6005: The data type 'av2' is currently not supported for the target Enti
             </Principal>
             <Dependent Role="KERDOIV_KERDES">
               <PropertyRef Name="ID_KERDOIV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VALASZ_FK4">
+          <End Type="Model.KERDES_VALASZLEHETOSEG" Role="KERDES_VALASZLEHETOSEG" Multiplicity="0..1" />
+          <End Type="Model.VALASZOK" Role="VALASZOK" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KERDES_VALASZLEHETOSEG">
+              <PropertyRef Name="ID_KERDES_VALASZLEHETOSEG" />
+            </Principal>
+            <Dependent Role="VALASZOK">
+              <PropertyRef Name="ID_VALASZ" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VALASZ_FK3">
+          <End Type="Model.KERDESEK" Role="KERDESEK" Multiplicity="0..1" />
+          <End Type="Model.VALASZOK" Role="VALASZOK" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KERDESEK">
+              <PropertyRef Name="ID_KERDESEK" />
+            </Principal>
+            <Dependent Role="VALASZOK">
+              <PropertyRef Name="ID_KERDES" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VALASZ_FK2">
+          <End Type="Model.KERDOIVEK" Role="KERDOIVEK" Multiplicity="0..1" />
+          <End Type="Model.VALASZOK" Role="VALASZOK" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KERDOIVEK">
+              <PropertyRef Name="ID_KERDOIVEK" />
+            </Principal>
+            <Dependent Role="VALASZOK">
+              <PropertyRef Name="ID_KERDOIV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VALASZ_FK1">
+          <End Type="Model.X" Role="X" Multiplicity="0..1" />
+          <End Type="Model.VALASZOK" Role="VALASZOK" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="X">
+              <PropertyRef Name="ID_X" />
+            </Principal>
+            <Dependent Role="VALASZOK">
+              <PropertyRef Name="X_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -720,6 +861,10 @@ warning 6005: The data type 'av2' is currently not supported for the target Enti
           <EntitySetMapping Name="VALASZOKs">
             <EntityTypeMapping TypeName="Model.VALASZOK">
               <MappingFragment StoreEntitySet="VALASZOK">
+                <ScalarProperty Name="ID_VALASZ" ColumnName="ID_VALASZ" />
+                <ScalarProperty Name="ID_KERDES" ColumnName="ID_KERDES" />
+                <ScalarProperty Name="ID_KERDOIV" ColumnName="ID_KERDOIV" />
+                <ScalarProperty Name="X_ID" ColumnName="X_ID" />
                 <ScalarProperty Name="ID_VALASZOK" ColumnName="ID_VALASZOK" />
               </MappingFragment>
             </EntityTypeMapping>

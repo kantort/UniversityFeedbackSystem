@@ -15,5 +15,14 @@ namespace DataAccessLayer
     public partial class VALASZOK
     {
         public int ID_VALASZOK { get; set; }
+        public Nullable<int> X_ID { get; set; }
+        public Nullable<int> ID_KERDOIV { get; set; }
+        public Nullable<int> ID_KERDES { get; set; }
+        public Nullable<int> ID_VALASZ { get; set; }
+    
+        public virtual KERDES_VALASZLEHETOSEG KERDES_VALASZLEHETOSEG { get; set; }
+        public virtual KERDESEK KERDESEK { get; set; }
+        public virtual KERDOIVEK KERDOIVEK { get; set; }
+        public virtual X X { get; set; }
     }
 }

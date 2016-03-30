@@ -14,11 +14,17 @@ namespace DataAccessLayer
     
     public partial class KERDES_VALASZLEHETOSEG
     {
+        public KERDES_VALASZLEHETOSEG()
+        {
+            this.VALASZOKs = new HashSet<VALASZOK>();
+        }
+    
         public int ID_KERDES_VALASZLEHETOSEG { get; set; }
         public Nullable<int> ID_KERDES { get; set; }
         public string VALASZLEHETOSEG { get; set; }
         public Nullable<int> VALASZLEHETOSEG_ERTEK { get; set; }
     
         public virtual KERDESEK KERDESEK { get; set; }
+        public virtual ICollection<VALASZOK> VALASZOKs { get; set; }
     }
 }

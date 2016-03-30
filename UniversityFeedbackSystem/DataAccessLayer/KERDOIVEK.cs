@@ -17,6 +17,7 @@ namespace DataAccessLayer
         public KERDOIVEK()
         {
             this.KERDOIV_KERDES = new HashSet<KERDOIV_KERDES>();
+            this.VALASZOKs = new HashSet<VALASZOK>();
         }
     
         public int ID_KERDOIVEK { get; set; }
@@ -25,5 +26,6 @@ namespace DataAccessLayer
         public Nullable<short> EV { get; set; }
     
         public virtual ICollection<KERDOIV_KERDES> KERDOIV_KERDES { get; set; }
+        public virtual ICollection<VALASZOK> VALASZOKs { get; set; }
     }
 }

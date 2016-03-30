@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e7b80bffdf2d4d75b4eaf412bc308a23" Name="Diagram1" ZoomLevel="64">
+      <Diagram DiagramId="e7b80bffdf2d4d75b4eaf412bc308a23" Name="Diagram1" ZoomLevel="79">
         <EntityTypeShape EntityType="Model.DIAKOK" Width="1.5" PointX="5.25" PointY="1.625" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.KAROK" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.KERDESEK" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
@@ -28,6 +28,10 @@
         <AssociationConnector Association="Model.XY_FK1" />
         <AssociationConnector Association="Model.XY_FK4" />
         <AssociationConnector Association="Model.XY_FK3" />
+        <AssociationConnector Association="Model.VALASZ_FK4" />
+        <AssociationConnector Association="Model.VALASZ_FK3" />
+        <AssociationConnector Association="Model.VALASZ_FK2" />
+        <AssociationConnector Association="Model.VALASZ_FK1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

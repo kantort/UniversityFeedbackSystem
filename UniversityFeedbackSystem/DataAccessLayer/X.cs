@@ -14,6 +14,11 @@ namespace DataAccessLayer
     
     public partial class X
     {
+        public X()
+        {
+            this.VALASZOKs = new HashSet<VALASZOK>();
+        }
+    
         public int ID_X { get; set; }
         public Nullable<int> ID_TANAROK { get; set; }
         public Nullable<int> ID_TANTARGYAK { get; set; }
@@ -25,5 +30,6 @@ namespace DataAccessLayer
         public virtual SZAKOK SZAKOK { get; set; }
         public virtual TANAROK TANAROK { get; set; }
         public virtual TANTARGYAK TANTARGYAK { get; set; }
+        public virtual ICollection<VALASZOK> VALASZOKs { get; set; }
     }
 }
